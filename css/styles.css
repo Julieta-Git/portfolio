@@ -1,0 +1,331 @@
+/* =========================================================
+   Portfolio · Julieta Estefania Romero
+   Estilo: creativo y juvenil, fondo verde claro
+   ========================================================= */
+
+/* ---------- 1. Variables (cambiá los colores acá) ---------- */
+:root {
+  --bg: #dcf2d2;          /* verde claro de fondo */
+  --bg-2: #c8e9b9;        /* verde un poco más intenso */
+  --paper: #fbfff8;       /* blanco verdoso para tarjetas */
+  --ink: #183a24;         /* verde muy oscuro para textos */
+  --ink-soft: #3f5e48;
+  --coral: #ff7a59;
+  --lilac: #b8a4ff;
+  --yellow: #ffd95e;
+  --pink: #ffb3d1;
+  --coral-ink: #b83c1c;  /* coral oscuro para TEXTOS (se lee mejor sobre el verde) */
+
+  --radius: 22px;
+  --border: 2.5px solid var(--ink);
+  --shadow: 5px 5px 0 var(--ink);   /* sombra "sticker" sin difuminar */
+
+  --f-display: "Fraunces", Georgia, serif;
+  --f-body: "Bricolage Grotesque", system-ui, sans-serif;
+  --f-hand: "Caveat", cursive;
+}
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0;
+  font-family: var(--f-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--bg);
+  /* puntitos de fondo */
+  background-image: radial-gradient(rgba(24, 58, 36, .12) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { line-height: 1.1; margin: 0; }
+h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -.02em; }
+h2 em, .hero__name { font-family: var(--f-display); font-style: italic; font-weight: 500; }
+:focus-visible { outline: 3px dashed var(--coral); outline-offset: 4px; }
+
+/* ---------- 3. Botones y stickers ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .8rem 1.4rem;
+  border: var(--border); border-radius: 999px;
+  font-weight: 600; text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+.btn--dark { background: var(--ink); color: var(--paper); }
+.btn--light { background: var(--paper); }
+
+.sticker {
+  display: inline-block;
+  padding: .45rem 1rem;
+  border: var(--border); border-radius: 999px;
+  font-weight: 600; font-size: .95rem;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.sticker--coral { background: var(--coral); transform: rotate(-3deg); }
+.sticker--lilac { background: var(--lilac); transform: rotate(2deg); }
+.sticker--yellow { background: var(--yellow); transform: rotate(-1.5deg); }
+
+.kicker {
+  font-family: var(--f-hand);
+  font-size: 1.7rem;
+  color: var(--coral-ink);
+  margin: 0 0 .2rem;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+/* ---------- 4. Nav ---------- */
+.nav {
+  position: sticky; top: 14px; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  width: min(1100px, calc(100% - 32px));
+  margin: 14px auto 0;
+  padding: .6rem .7rem .6rem 1.3rem;
+  background: var(--paper);
+  border: var(--border); border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+.nav__logo { font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: 1.5rem; text-decoration: none; }
+.nav__logo span { color: var(--coral); }
+.nav__links { display: flex; gap: 1.4rem; }
+.nav__links a { text-decoration: none; font-weight: 600; position: relative; }
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; bottom: -3px; height: 3px; width: 100%;
+  background: var(--coral); border-radius: 3px;
+  transform: scaleX(0); transform-origin: left; transition: transform .2s;
+}
+.nav__links a:hover::after { transform: scaleX(1); }
+
+.lang {
+  display: flex; padding: 3px; gap: 2px;
+  border: var(--border); border-radius: 999px;
+  background: var(--bg); cursor: pointer;
+  font: 700 .85rem var(--f-body); color: var(--ink);
+}
+.lang span { padding: .3rem .65rem; border-radius: 999px; transition: background .2s, color .2s; }
+html[lang="es"] .lang [data-lang="es"],
+html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--paper); }
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  position: relative;
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(4rem, 12vw, 8rem) 0 4rem;
+}
+.hero__hello {
+  font-family: var(--f-hand); font-size: 2rem; margin: 0;
+  display: flex; align-items: flex-end; gap: .3rem;
+  transform: rotate(-3deg);
+}
+.arrow { width: 60px; stroke: var(--ink); }
+.hero__name {
+  font-size: clamp(3rem, 11vw, 7.5rem);
+  letter-spacing: -.03em;
+  margin: .3rem 0 1.6rem;
+}
+/* subrayado tipo marcador detrás de "Romero" */
+.hl {
+  background: linear-gradient(transparent 62%, var(--pink) 62%, var(--pink) 92%, transparent 92%);
+  padding: 0 .1em;
+}
+.hero__stickers { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 1.8rem; }
+.hero__lead { max-width: 560px; font-size: 1.2rem; color: var(--ink-soft); margin: 0 0 2rem; }
+.hero__lead strong { color: var(--ink); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* formitas decorativas */
+.deco { position: absolute; pointer-events: none; }
+.deco--star { width: 90px; top: 18%; right: 4%; fill: var(--yellow); stroke: var(--ink); stroke-width: 3; animation: spin 14s linear infinite; }
+.deco--flower { width: 110px; bottom: 12%; right: 12%; animation: float 5s ease-in-out infinite; }
+.deco--flower g circle { fill: var(--lilac); stroke: var(--ink); stroke-width: 3; }
+.deco--flower .center { fill: var(--yellow); stroke: var(--ink); stroke-width: 3; }
+.deco--squiggle { width: 160px; top: 8%; right: 30%; stroke: var(--coral); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes float { 50% { transform: translateY(-14px) rotate(8deg); } }
+
+/* ---------- 6. Cinta de habilidades ---------- */
+/* el contenedor recorta la cinta inclinada para que no genere scroll horizontal */
+.marquee-wrap { overflow: clip; padding-block: 1.5rem; }
+.marquee {
+  background: var(--ink); color: var(--bg);
+  border-block: var(--border);
+  transform: rotate(-1.5deg);
+  margin: 0 -2%;
+  overflow: hidden;
+}
+.marquee__track {
+  display: flex; gap: 1.6rem; width: max-content;
+  padding: .9rem 0;
+  font-weight: 800; font-size: 1.3rem; text-transform: uppercase; letter-spacing: .04em;
+  animation: marquee 28s linear infinite;
+}
+.marquee__track span:nth-child(4n) { color: var(--yellow); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+
+/* ---------- 7. Secciones ---------- */
+.section {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(4rem, 10vw, 7rem) 0 0;
+}
+.section__head { margin-bottom: 2.5rem; }
+
+/* ---------- 8. Proyectos ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: 2.4rem;
+}
+.project {
+  background: var(--paper);
+  border: var(--border); border-radius: var(--radius);
+  box-shadow: 7px 7px 0 var(--ink);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform .25s;
+}
+.project:nth-child(odd) { transform: rotate(-.8deg); }
+.project:nth-child(even) { transform: rotate(.8deg); }
+.project:hover { transform: rotate(0) translateY(-6px); }
+
+/* ventanita de navegador */
+.project__browser { border-bottom: var(--border); }
+.project__bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: .55rem .8rem;
+  background: var(--bg-2);
+  border-bottom: var(--border);
+  font-size: .78rem; font-weight: 600;
+}
+.project__bar i { width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--ink); }
+.project__bar i:nth-child(1) { background: var(--coral); }
+.project__bar i:nth-child(2) { background: var(--yellow); }
+.project__bar i:nth-child(3) { background: var(--lilac); }
+.project__bar span {
+  margin-left: .5rem; padding: .1rem .7rem;
+  background: var(--paper); border-radius: 999px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.project__shot { display: block; aspect-ratio: 16 / 10; position: relative; overflow: hidden; }
+.project__shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s; }
+.project:hover .project__shot img { transform: scale(1.04); }
+/* si todavía no hay captura, se ve este "afiche" con los colores del proyecto */
+.project__fallback {
+  position: absolute; inset: 0;
+  display: grid; place-items: center; text-align: center; padding: 1rem;
+  font-family: var(--f-display); font-style: italic; font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+.project__body { padding: 1.5rem 1.5rem 1.7rem; display: flex; flex-direction: column; gap: .8rem; flex: 1; }
+.project__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.project__type { font-family: var(--f-hand); font-size: 1.35rem; color: var(--coral-ink); }
+.project h3 { font-size: 1.5rem; font-weight: 800; }
+.project p { margin: 0; color: var(--ink-soft); }
+.tags { display: flex; flex-wrap: wrap; gap: .45rem; list-style: none; margin: 0; padding: 0; }
+.tags li { font-size: .82rem; font-weight: 600; padding: .2rem .7rem; border: 2px solid var(--ink); border-radius: 999px; background: var(--bg); }
+.project .btn { align-self: flex-start; margin-top: auto; }
+.badge {
+  flex-shrink: 0;
+  font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
+  padding: .3rem .7rem; border: 2px solid var(--ink); border-radius: 999px;
+  background: var(--yellow); transform: rotate(4deg);
+}
+
+/* ---------- 9. Sobre mí ---------- */
+.about { display: grid; grid-template-columns: 340px 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.about__photo { position: relative; }
+.about__photo img,
+.about__placeholder {
+  aspect-ratio: 4 / 5; width: 100%;
+  border: var(--border); border-radius: 160px 160px var(--radius) var(--radius);
+  box-shadow: 9px 9px 0 var(--ink);
+  object-fit: cover;
+}
+.about__placeholder {
+  display: grid; place-items: center;
+  background: var(--lilac);
+  font-family: var(--f-display); font-style: italic; font-size: 9rem;
+}
+.about__note {
+  position: absolute; bottom: -1.2rem; right: -1rem;
+  font-family: var(--f-hand); font-size: 1.6rem;
+  background: var(--yellow); padding: .2rem 1rem;
+  border: var(--border); border-radius: 12px;
+  transform: rotate(-6deg);
+}
+.about__text p { color: var(--ink-soft); }
+.about__text h2 { margin-bottom: 1.2rem; }
+.facts { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; gap: .7rem; }
+.facts li {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding: .8rem 1.1rem; background: var(--paper);
+  border: var(--border); border-radius: 14px;
+}
+.facts span { font-family: var(--f-hand); font-size: 1.35rem; color: var(--coral-ink); line-height: 1.2; }
+
+/* ---------- 10. Servicios ---------- */
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1.6rem; }
+.service {
+  padding: 1.8rem; border: var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .2s;
+}
+.service:hover { transform: rotate(-1.5deg) scale(1.02); }
+.service--coral { background: var(--coral); }
+.service--lilac { background: var(--lilac); }
+.service--yellow { background: var(--yellow); }
+.service__num { font-family: var(--f-display); font-style: italic; font-size: 2.6rem; line-height: 1; }
+.service h3 { font-size: 1.45rem; margin: .8rem 0 .5rem; }
+.service p { margin: 0; }
+
+/* ---------- 11. Contacto ---------- */
+.contact { text-align: center; padding-bottom: 5rem; }
+.contact__title { font-size: clamp(2.6rem, 8vw, 5.5rem); margin-bottom: 1rem; }
+.contact > p { color: var(--ink-soft); max-width: 520px; margin: 0 auto 2rem; }
+.mail {
+  display: inline-flex; flex-direction: column; align-items: center; gap: .2rem;
+  padding: 1.2rem 2rem; max-width: 100%;
+  background: var(--paper); color: var(--ink);
+  border: var(--border); border-radius: var(--radius);
+  box-shadow: 7px 7px 0 var(--ink);
+  font-family: var(--f-body); cursor: pointer;
+  transition: transform .15s;
+}
+.mail:hover { transform: rotate(-1deg) scale(1.02); }
+.mail__addr { font-weight: 800; font-size: clamp(1rem, 3.6vw, 1.6rem); word-break: break-all; }
+.mail__hint { font-family: var(--f-hand); font-size: 1.3rem; color: var(--coral-ink); }
+.socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2.2rem; }
+
+/* ---------- 12. Footer ---------- */
+.footer { text-align: center; padding: 1.6rem 1rem; border-top: var(--border); background: var(--bg-2); font-weight: 600; }
+.footer p { margin: 0; }
+
+/* ---------- 13. Animación al aparecer (la activa main.js) ---------- */
+.reveal { opacity: 0; translate: 0 30px; transition: opacity .7s ease, translate .7s ease, transform .25s; }
+.reveal.is-visible { opacity: 1; translate: 0 0; }
+
+/* ---------- 14. Responsive ---------- */
+@media (max-width: 820px) {
+  .nav__links { display: none; }        /* en celu el menú se esconde: la página se recorre con scroll */
+  .about { grid-template-columns: 1fr; }
+  .about__photo { max-width: 280px; margin: 0 auto; }
+  .deco--squiggle { display: none; }
+  .deco--star { width: 60px; top: 10%; }
+  .deco--flower { display: none; }
+}
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; translate: 0 0; }
+}

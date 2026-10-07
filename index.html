@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Julieta Estefania Romero · Front-End Developer</title>
+  <meta name="description" content="Portfolio de Julieta Estefania Romero, desarrolladora front-end. Sitios web responsive en HTML, CSS y JavaScript." />
+
+  <!-- Tipografías: Fraunces (nombre en cursiva), Bricolage Grotesque (textos), Caveat (notas a mano) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@600&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <a href="#inicio" class="nav__logo" aria-label="Inicio">J<span>.</span>R</a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+      <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+      <a href="#servicios" data-i18n="nav.services">Servicios</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <button class="lang" id="langToggle" type="button" aria-label="Cambiar idioma / Change language">
+      <span data-lang="es">ES</span><span data-lang="en">EN</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+      <!-- Formitas decorativas -->
+      <svg class="deco deco--star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0 C55 35 65 45 100 50 C65 55 55 65 50 100 C45 65 35 55 0 50 C35 45 45 35 50 0Z"/></svg>
+      <svg class="deco deco--flower" viewBox="0 0 100 100" aria-hidden="true"><g><circle cx="50" cy="22" r="20"/><circle cx="78" cy="50" r="20"/><circle cx="50" cy="78" r="20"/><circle cx="22" cy="50" r="20"/></g><circle cx="50" cy="50" r="14" class="center"/></svg>
+      <svg class="deco deco--squiggle" viewBox="0 0 200 40" aria-hidden="true"><path d="M5 20 Q 25 0 45 20 T 85 20 T 125 20 T 165 20 T 195 20" fill="none" stroke-width="7" stroke-linecap="round"/></svg>
+
+      <p class="hero__hello"><span data-i18n="hero.hello">¡hola! soy</span>
+        <svg class="arrow" viewBox="0 0 80 60" aria-hidden="true"><path d="M5 10 C 30 5, 55 20, 60 50 M48 40 L60 52 L70 38" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </p>
+
+      <h1 class="hero__name">Julieta Estefania <span class="hl">Romero</span></h1>
+
+      <div class="hero__stickers">
+        <span class="sticker sticker--coral">Front-End Developer ✦</span>
+        <span class="sticker sticker--lilac" data-i18n="hero.student">Estudiante de Lic. en Sistemas de Información</span>
+        <span class="sticker sticker--yellow">HTML · CSS · JS · SQL</span>
+      </div>
+
+      <p class="hero__lead" data-i18n="hero.lead">
+        Diseño y programo sitios web que se ven lindos, cargan rápido y funcionan perfecto en el celular.
+        Ya trabajé con <strong>clientes reales</strong>: pastelerías, tiendas, salones de belleza y eventos.
+      </p>
+
+      <div class="hero__cta">
+        <a href="#proyectos" class="btn btn--dark" data-i18n="hero.cta1">Ver proyectos</a>
+        <a href="#contacto" class="btn btn--light" data-i18n="hero.cta2">Hablemos</a>
+      </div>
+    </section>
+
+    <!-- ===== CINTA DE HABILIDADES ===== -->
+    <div class="marquee-wrap">
+    <div class="marquee" aria-label="Habilidades">
+      <div class="marquee__track">
+        <span>HTML5</span><span>✦</span><span>CSS3</span><span>✦</span><span>JavaScript</span><span>✦</span><span>SQL</span><span>✦</span><span>Git &amp; GitHub</span><span>✦</span><span>Responsive</span><span>✦</span><span>Mobile-first</span><span>✦</span><span>Netlify</span><span>✦</span><span>Astro</span><span>✦</span><span>Figma</span><span>✦</span>
+        <!-- duplicado para que la cinta sea infinita -->
+        <span aria-hidden="true">HTML5</span><span aria-hidden="true">✦</span><span aria-hidden="true">CSS3</span><span aria-hidden="true">✦</span><span aria-hidden="true">JavaScript</span><span aria-hidden="true">✦</span><span aria-hidden="true">SQL</span><span aria-hidden="true">✦</span><span aria-hidden="true">Git &amp; GitHub</span><span aria-hidden="true">✦</span><span aria-hidden="true">Responsive</span><span aria-hidden="true">✦</span><span aria-hidden="true">Mobile-first</span><span aria-hidden="true">✦</span><span aria-hidden="true">Netlify</span><span aria-hidden="true">✦</span><span aria-hidden="true">Astro</span><span aria-hidden="true">✦</span><span aria-hidden="true">Figma</span><span aria-hidden="true">✦</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- ===== PROYECTOS ===== -->
+    <section class="section" id="proyectos">
+      <div class="section__head">
+        <p class="kicker" data-i18n="projects.kicker">lo que hice</p>
+        <h2 data-i18n="projects.title">Proyectos <em>con clientes reales</em></h2>
+      </div>
+
+      <!-- Las tarjetas se generan desde js/main.js (array "projects").
+           Para sumar un proyecto, agregalo ahí. -->
+      <div class="projects" id="projectsGrid"></div>
+    </section>
+
+    <!-- ===== SOBRE MÍ ===== -->
+    <section class="section about" id="sobre-mi">
+      <div class="about__photo">
+        <!-- Cuando tengas tu foto, guardala como img/julieta.jpg y descomentá la línea de abajo -->
+        <!-- <img src="img/julieta.jpg" alt="Foto de Julieta" /> -->
+        <div class="about__placeholder" aria-hidden="true">J</div>
+        <span class="about__note" data-i18n="about.note">esta soy yo :)</span>
+      </div>
+
+      <div class="about__text">
+        <p class="kicker" data-i18n="about.kicker">sobre mí</p>
+        <h2 data-i18n="about.title">Me gusta que las cosas <em>funcionen</em> y que <em>se vean lindas</em></h2>
+        <p data-i18n="about.p1">
+          Soy estudiante de la Licenciatura en Sistemas de Información y desarrolladora front-end.
+          Empecé haciendo webs para emprendimientos cercanos y hoy armo sitios completos: desde el relevamiento con el cliente hasta la publicación online.
+        </p>
+        <p data-i18n="about.p2">
+          Trabajo con HTML, CSS y JavaScript sin frameworks, siempre <strong>mobile-first</strong>, y también manejo <strong>SQL</strong> para bases de datos. Ahora estoy aprendiendo Astro.
+        </p>
+
+        <ul class="facts">
+          <li><span data-i18n="about.f1k">Estudio</span><strong data-i18n="about.f1v">Lic. en Sistemas de Información</strong></li>
+          <li><span data-i18n="about.f2k">Foco</span><strong data-i18n="about.f2v">Front-end · Responsive · UX</strong></li>
+          <li><span data-i18n="about.f3k">Aprendiendo</span><strong>Astro · SQL Server</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===== -->
+    <section class="section" id="servicios">
+      <div class="section__head">
+        <p class="kicker" data-i18n="services.kicker">para emprendimientos</p>
+        <h2 data-i18n="services.title">¿Qué puedo hacer <em>por tu negocio?</em></h2>
+      </div>
+
+      <div class="services">
+        <article class="service service--coral">
+          <span class="service__num">01</span>
+          <h3 data-i18n="services.s1t">Catálogo online</h3>
+          <p data-i18n="services.s1d">Tus productos con fotos, precios y carrito. El pedido te llega directo por WhatsApp.</p>
+        </article>
+        <article class="service service--lilac">
+          <span class="service__num">02</span>
+          <h3 data-i18n="services.s2t">Landing page</h3>
+          <p data-i18n="services.s2d">Una página que presenta tu marca y tus servicios, con botón de contacto y lista para compartir en redes.</p>
+        </article>
+        <article class="service service--yellow">
+          <span class="service__num">03</span>
+          <h3 data-i18n="services.s3t">Menú digital</h3>
+          <p data-i18n="services.s3d">Tu carta con QR, fácil de actualizar y pensada para leerse cómoda en el celular.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="section contact" id="contacto">
+      <p class="kicker" data-i18n="contact.kicker">¿hablamos?</p>
+      <h2 class="contact__title" data-i18n="contact.title">¿Hacemos algo <em>juntos?</em></h2>
+      <p data-i18n="contact.text">Estoy abierta a trabajos, pasantías y proyectos freelance. Escribime y te respondo pronto.</p>
+
+      <button class="mail" id="copyMail" type="button">
+        <span class="mail__addr">romerojulietaestefania@gmail.com</span>
+        <span class="mail__hint" data-i18n="contact.copy">clic para copiar</span>
+      </button>
+
+      <div class="socials">
+        <!-- WhatsApp: formato wa.me/549 + característica + número (sin 0 ni 15) -->
+        <a class="btn btn--dark" href="https://wa.me/5493704647853" target="_blank" rel="noopener">WhatsApp · 3704 647853 ↗</a>
+        <a class="btn btn--light" href="mailto:romerojulietaestefania@gmail.com">Email ↗</a>
+        <!-- Cuando tengas LinkedIn y GitHub actualizados, descomentá estas líneas:
+        <a class="btn btn--light" href="https://github.com/Julieta-Git" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn--light" href="URL-DE-TU-LINKEDIN" target="_blank" rel="noopener">LinkedIn ↗</a>
+        -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footer">Hecho a mano con HTML, CSS y JavaScript por Julieta ✦ 2026</p>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
