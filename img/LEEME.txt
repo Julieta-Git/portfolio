@@ -1,6 +1,3 @@
-Guardá acá las capturas de cada proyecto (1280x800 aprox.):
-- valeria.png
-- rincon.png
-- meli.png
-- la-familia.png
-Y tu foto como julieta.jpg
+Tu foto ya está: julieta.jpg
+Las tarjetas de proyectos muestran el sitio en vivo.
+Si preferís una captura fija, guardala acá (ej. valeria.png) y en js/main.js poné image: "img/valeria.png".

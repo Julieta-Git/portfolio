@@ -20,6 +20,7 @@ const translations = {
     "projects.title": "Proyectos <em>con clientes reales</em>",
     "projects.visit": "Ver sitio ↗",
     "projects.badge": "Cliente real",
+    "services.example": "ver ejemplo",
 
     "about.note": "esta soy yo :)",
     "about.kicker": "sobre mí",
@@ -43,7 +44,6 @@ const translations = {
     "contact.copy": "clic para copiar",
     "contact.copied": "¡copiado! ✓",
 
-    "footer": "Hecho a mano con HTML, CSS y JavaScript por Julieta ✦ 2026",
   },
 
   en: {
@@ -63,6 +63,7 @@ const translations = {
     "projects.title": "Projects <em>for real clients</em>",
     "projects.visit": "Visit site ↗",
     "projects.badge": "Real client",
+    "services.example": "see example",
 
     "about.note": "that's me :)",
     "about.kicker": "about me",
@@ -86,6 +87,5 @@ const translations = {
     "contact.copy": "click to copy",
     "contact.copied": "copied! ✓",
 
-    "footer": "Handmade with HTML, CSS and JavaScript by Julieta ✦ 2026",
   },
 };

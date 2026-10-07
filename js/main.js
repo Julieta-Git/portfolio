@@ -8,7 +8,7 @@ const projects = [
   {
     name: "Valeria Salón de Belleza",
     url: "https://valeria-salon-de-belleza.netlify.app/",
-    image: "img/valeria.png",
+    image: null, // poné "img/archivo.png" si preferís una captura fija
     colors: ["#f6d6dc", "#3b2a2f"], // [fondo, texto] del afiche
     tags: ["Astro", "CSS", "Mobile-first", "Netlify"],
     type: { es: "peluquería", en: "hair salon" },
@@ -20,7 +20,7 @@ const projects = [
   {
     name: "El Rincón de Luciérnaga",
     url: "https://el-rincon-de-luciernaga.netlify.app/",
-    image: "img/rincon.png",
+    image: null, // poné "img/archivo.png" si preferís una captura fija
     colors: ["#f7f0e1", "#1f4b5a"],
     tags: ["HTML", "CSS", "JavaScript", "WhatsApp"],
     type: { es: "tienda de accesorios", en: "accessories shop" },
@@ -32,7 +32,7 @@ const projects = [
   {
     name: "Meli Pasteles",
     url: "https://julieta-git.github.io/meli-pasteles/",
-    image: "img/meli.png",
+    image: null, // poné "img/archivo.png" si preferís una captura fija
     colors: ["#f3dcf0", "#5b3a78"],
     tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
     type: { es: "pastelería", en: "bakery" },
@@ -44,7 +44,7 @@ const projects = [
   {
     name: "La Familia · Eventos",
     url: "https://la-familia-organizacion-de-eventos.netlify.app/",
-    image: "img/la-familia.png",
+    image: null, // poné "img/archivo.png" si preferís una captura fija
     colors: ["#1e2140", "#f2d48a"],
     tags: ["HTML", "CSS", "JavaScript", "Figma"],
     type: { es: "organización de eventos", en: "event planning" },
@@ -64,6 +64,7 @@ const projects = [
 const services = [
   {
     color: "coral",
+    example: "https://el-rincon-de-luciernaga.netlify.app/",
     title: { es: "Catálogo online", en: "Online catalog" },
     desc: {
       es: "Tus productos con fotos, precios, categorías y carrito. El pedido te llega directo por WhatsApp.",
@@ -73,6 +74,7 @@ const services = [
   },
   {
     color: "lilac",
+    example: "https://valeria-salon-de-belleza.netlify.app/",
     title: { es: "Web para tu negocio", en: "Business website" },
     desc: {
       es: "Un sitio completo con tus servicios, galería de trabajos, preguntas frecuentes y contacto.",
@@ -82,6 +84,7 @@ const services = [
   },
   {
     color: "yellow",
+    example: "https://la-familia-organizacion-de-eventos.netlify.app/",
     title: { es: "Landing page", en: "Landing page" },
     desc: {
       es: "Una sola página para presentar tu marca o una promo, lista para compartir en redes.",
@@ -100,6 +103,7 @@ const services = [
   },
   {
     color: "yellow",
+    example: "https://julieta-git.github.io/meli-pasteles/",
     title: { es: "Turnos y pedidos por WhatsApp", en: "Bookings & orders via WhatsApp" },
     desc: {
       es: "Tu cliente elige qué quiere y cuándo, y a vos te llega un mensaje ordenado con todos los datos.",
@@ -109,6 +113,7 @@ const services = [
   },
   {
     color: "coral",
+    example: "https://cumplebenja-10.vercel.app/",
     title: { es: "Invitaciones digitales", en: "Digital invitations" },
     desc: {
       es: "Una invitación web interactiva con cuenta regresiva, ubicación y confirmación de asistencia.",
@@ -184,7 +189,9 @@ function renderProjects() {
         <a class="project__shot" href="${p.url}" target="_blank" rel="noopener" aria-label="${p.name}">
           <span class="badge">${t["projects.badge"]}</span>
           <div class="project__fallback" style="background:${p.colors[0]};color:${p.colors[1]}">${p.name}</div>
-          <img src="${p.image}" alt="Captura de ${p.name}" loading="lazy" onerror="this.remove()" />
+          ${p.image
+            ? `<img src="${p.image}" alt="Captura de ${p.name}" loading="lazy" onerror="this.remove()" />`
+            : `<iframe class="project__live" src="${p.url}" title="Vista previa de ${p.name}" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>`}
         </a>
       </div>
       <div class="project__body">
@@ -200,7 +207,15 @@ function renderProjects() {
   `).join("");
 
   observeReveal(grid.querySelectorAll(".project"));
+  grid.querySelectorAll(".project__shot").forEach((shot) => previewObserver.observe(shot));
 }
+
+// Ajusta el tamaño de cada vista previa en vivo al ancho de su tarjeta
+const previewObserver = new ResizeObserver((entries) => {
+  entries.forEach((entry) => {
+    entry.target.style.setProperty("--s", entry.contentRect.width / 1280);
+  });
+});
 
 function renderServices() {
   const grid = document.getElementById("servicesGrid");
@@ -210,6 +225,7 @@ function renderServices() {
     <article class="service service--${s.color}">
       <h3>${s.title[currentLang]}</h3>
       <p>${s.desc[currentLang]}</p>
+      ${s.example ? `<a class="service__example" href="${s.example}" target="_blank" rel="noopener">${translations[currentLang]["services.example"]} ↗</a>` : ""}
       <p class="service__ideal"><span>${idealLabel}:</span> ${s.ideal[currentLang]}</p>
     </article>
   `).join("");
