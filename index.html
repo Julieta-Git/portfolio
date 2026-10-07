@@ -24,9 +24,24 @@
       <a href="#servicios" data-i18n="nav.services">Servicios</a>
       <a href="#contacto" data-i18n="nav.contact">Contacto</a>
     </nav>
-    <button class="lang" id="langToggle" type="button" aria-label="Cambiar idioma / Change language">
-      <span data-lang="es">ES</span><span data-lang="en">EN</span>
-    </button>
+    <div class="nav__actions">
+      <button class="lang" id="langToggle" type="button" aria-label="Switch to English">
+        <span data-lang="es">ES</span><span data-lang="en">EN</span>
+      </button>
+      <!-- Botón de menú: solo se ve en el celular -->
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="menu-btn__icon" aria-hidden="true"><i></i><i></i></span>
+        <span data-i18n="nav.menu">Menú</span>
+      </button>
+    </div>
+
+    <!-- Menú desplegable del celular -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú" hidden>
+      <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+      <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+      <a href="#servicios" data-i18n="nav.services">Servicios</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
   </header>
 
   <main>
@@ -118,23 +133,14 @@
         <h2 data-i18n="services.title">¿Qué puedo hacer <em>por tu negocio?</em></h2>
       </div>
 
-      <div class="services">
-        <article class="service service--coral">
-          <span class="service__num">01</span>
-          <h3 data-i18n="services.s1t">Catálogo online</h3>
-          <p data-i18n="services.s1d">Tus productos con fotos, precios y carrito. El pedido te llega directo por WhatsApp.</p>
-        </article>
-        <article class="service service--lilac">
-          <span class="service__num">02</span>
-          <h3 data-i18n="services.s2t">Landing page</h3>
-          <p data-i18n="services.s2d">Una página que presenta tu marca y tus servicios, con botón de contacto y lista para compartir en redes.</p>
-        </article>
-        <article class="service service--yellow">
-          <span class="service__num">03</span>
-          <h3 data-i18n="services.s3t">Menú digital</h3>
-          <p data-i18n="services.s3d">Tu carta con QR, fácil de actualizar y pensada para leerse cómoda en el celular.</p>
-        </article>
-      </div>
+      <!-- Las tarjetas se generan desde js/main.js (array "services").
+           Para sumar, sacar o editar un servicio, cambialo ahí. -->
+      <div class="services" id="servicesGrid"></div>
+
+      <p class="services__more">
+        <span data-i18n="services.more">¿No ves lo que necesitás?</span>
+        <a href="#contacto" class="btn btn--dark" data-i18n="services.moreCta">Contame tu idea →</a>
+      </p>
     </section>
 
     <!-- ===== CONTACTO ===== -->
@@ -144,7 +150,7 @@
       <p data-i18n="contact.text">Estoy abierta a trabajos, pasantías y proyectos freelance. Escribime y te respondo pronto.</p>
 
       <button class="mail" id="copyMail" type="button">
-        <span class="mail__addr">romerojulietaestefania@gmail.com</span>
+        <span class="mail__addr">romerojulietaestefania<wbr>@gmail.com</span>
         <span class="mail__hint" data-i18n="contact.copy">clic para copiar</span>
       </button>
 

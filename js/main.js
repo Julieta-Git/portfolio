@@ -56,6 +56,87 @@ const projects = [
 ];
 
 // =========================================================
+// 1b. SERVICIOS
+// Para sumar, sacar o editar un servicio, cambiá este array.
+// "color": coral, lilac, yellow o pink.
+// "ideal": para quién es (se muestra en letra a mano).
+// =========================================================
+const services = [
+  {
+    color: "coral",
+    title: { es: "Catálogo online", en: "Online catalog" },
+    desc: {
+      es: "Tus productos con fotos, precios, categorías y carrito. El pedido te llega directo por WhatsApp.",
+      en: "Your products with photos, prices, categories and a cart. Orders arrive straight to your WhatsApp.",
+    },
+    ideal: { es: "tiendas, pastelerías, emprendimientos", en: "shops, bakeries, small brands" },
+  },
+  {
+    color: "lilac",
+    title: { es: "Web para tu negocio", en: "Business website" },
+    desc: {
+      es: "Un sitio completo con tus servicios, galería de trabajos, preguntas frecuentes y contacto.",
+      en: "A full website with your services, work gallery, FAQ and contact.",
+    },
+    ideal: { es: "salones, estéticas, servicios", en: "salons, studios, service businesses" },
+  },
+  {
+    color: "yellow",
+    title: { es: "Landing page", en: "Landing page" },
+    desc: {
+      es: "Una sola página para presentar tu marca o una promo, lista para compartir en redes.",
+      en: "A single page to present your brand or a promo, ready to share on social media.",
+    },
+    ideal: { es: "lanzamientos, promos, Instagram", en: "launches, promos, Instagram" },
+  },
+  {
+    color: "pink",
+    title: { es: "Menú digital", en: "Digital menu" },
+    desc: {
+      es: "Tu carta con QR, fácil de actualizar y pensada para leerse cómoda en el celular.",
+      en: "Your menu behind a QR code, easy to update and comfortable to read on a phone.",
+    },
+    ideal: { es: "cafeterías, bares, rotiserías", en: "cafés, bars, takeaways" },
+  },
+  {
+    color: "yellow",
+    title: { es: "Turnos y pedidos por WhatsApp", en: "Bookings & orders via WhatsApp" },
+    desc: {
+      es: "Tu cliente elige qué quiere y cuándo, y a vos te llega un mensaje ordenado con todos los datos.",
+      en: "Your customer picks what and when, and you get a tidy message with every detail.",
+    },
+    ideal: { es: "peluquerías, viandas, tortas por encargo", en: "hair salons, meal prep, custom cakes" },
+  },
+  {
+    color: "coral",
+    title: { es: "Invitaciones digitales", en: "Digital invitations" },
+    desc: {
+      es: "Una invitación web interactiva con cuenta regresiva, ubicación y confirmación de asistencia.",
+      en: "An interactive web invitation with a countdown, location and RSVP.",
+    },
+    ideal: { es: "cumpleaños, casamientos, fiestas", en: "birthdays, weddings, parties" },
+  },
+  {
+    color: "pink",
+    title: { es: "Rediseño de tu web", en: "Website redesign" },
+    desc: {
+      es: "Renuevo tu sitio actual para que se vea moderno y funcione bien en el celular.",
+      en: "I refresh your current site so it looks modern and works well on phones.",
+    },
+    ideal: { es: "webs viejas o que no se adaptan al celu", en: "outdated or non-mobile sites" },
+  },
+  {
+    color: "lilac",
+    title: { es: "Publicación y mantenimiento", en: "Launch & maintenance" },
+    desc: {
+      es: "Te ayudo con el dominio y el hosting, publico tu web y la mantengo actualizada.",
+      en: "I help you with the domain and hosting, launch your site and keep it up to date.",
+    },
+    ideal: { es: "quien no quiere ocuparse de lo técnico", en: "anyone who'd rather skip the tech" },
+  },
+];
+
+// =========================================================
 // 2. IDIOMA
 // =========================================================
 let currentLang = "es";
@@ -76,7 +157,11 @@ function applyLanguage(lang) {
     if (text) el.innerHTML = text;
   });
 
+  // el botón de idioma anuncia a qué idioma cambia (para lectores de pantalla)
+  document.getElementById("langToggle").setAttribute("aria-label", lang === "es" ? "Switch to English" : "Cambiar a español");
+
   renderProjects();
+  renderServices();
 
   try { localStorage.setItem("lang", lang); } catch (e) {}
 }
@@ -95,19 +180,17 @@ function renderProjects() {
   grid.innerHTML = projects.map((p) => `
     <article class="project">
       <div class="project__browser">
-        <div class="project__bar"><i></i><i></i><i></i><span>${p.url.replace("https://", "")}</span></div>
+        <div class="project__bar" aria-hidden="true"><i></i><i></i><i></i><span>${p.url.replace("https://", "")}</span></div>
         <a class="project__shot" href="${p.url}" target="_blank" rel="noopener" aria-label="${p.name}">
+          <span class="badge">${t["projects.badge"]}</span>
           <div class="project__fallback" style="background:${p.colors[0]};color:${p.colors[1]}">${p.name}</div>
           <img src="${p.image}" alt="Captura de ${p.name}" loading="lazy" onerror="this.remove()" />
         </a>
       </div>
       <div class="project__body">
         <div class="project__top">
-          <div>
-            <span class="project__type">${p.type[currentLang]}</span>
-            <h3>${p.name}</h3>
-          </div>
-          <span class="badge">${t["projects.badge"]}</span>
+          <span class="project__type">${p.type[currentLang]}</span>
+          <h3>${p.name}</h3>
         </div>
         <p>${p.desc[currentLang]}</p>
         <ul class="tags">${p.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>
@@ -118,6 +201,40 @@ function renderProjects() {
 
   observeReveal(grid.querySelectorAll(".project"));
 }
+
+function renderServices() {
+  const grid = document.getElementById("servicesGrid");
+  const idealLabel = currentLang === "es" ? "ideal para" : "great for";
+
+  grid.innerHTML = services.map((s) => `
+    <article class="service service--${s.color}">
+      <h3>${s.title[currentLang]}</h3>
+      <p>${s.desc[currentLang]}</p>
+      <p class="service__ideal"><span>${idealLabel}:</span> ${s.ideal[currentLang]}</p>
+    </article>
+  `).join("");
+
+  observeReveal(grid.querySelectorAll(".service"));
+}
+
+// =========================================================
+// 3b. MENÚ DEL CELULAR
+// =========================================================
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+function setMenu(open) {
+  menuBtn.setAttribute("aria-expanded", String(open));
+  mobileMenu.hidden = !open;
+}
+menuBtn.addEventListener("click", () => setMenu(mobileMenu.hidden));
+mobileMenu.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !mobileMenu.hidden) { setMenu(false); menuBtn.focus(); }
+});
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.hidden && !e.target.closest(".nav")) setMenu(false);
+});
 
 // =========================================================
 // 4. COPIAR EMAIL
@@ -153,7 +270,7 @@ function observeReveal(elements) {
   });
 }
 
-observeReveal(document.querySelectorAll(".section__head, .about, .service, .contact"));
+observeReveal(document.querySelectorAll(".section__head, .about, .services__more, .contact"));
 
 // Arranca todo
 applyLanguage(currentLang);

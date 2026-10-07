@@ -63,7 +63,7 @@ h2 em, .hero__name { font-family: var(--f-display); font-style: italic; font-wei
 .sticker {
   display: inline-block;
   padding: .45rem 1rem;
-  border: var(--border); border-radius: 999px;
+  border: var(--border); border-radius: 1.4rem;
   font-weight: 600; font-size: .95rem;
   box-shadow: 3px 3px 0 var(--ink);
 }
@@ -91,7 +91,11 @@ h2 em, .hero__name { font-family: var(--f-display); font-style: italic; font-wei
   border: var(--border); border-radius: 999px;
   box-shadow: var(--shadow);
 }
-.nav__logo { font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: 1.5rem; text-decoration: none; }
+.nav__logo {
+  font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: 1.5rem; text-decoration: none;
+  min-width: 44px; min-height: 44px; display: inline-flex; align-items: center;
+}
+.nav__actions { display: flex; align-items: center; gap: .5rem; }
 .nav__logo span { color: var(--coral); }
 .nav__links { display: flex; gap: 1.4rem; }
 .nav__links a { text-decoration: none; font-weight: 600; position: relative; }
@@ -103,7 +107,7 @@ h2 em, .hero__name { font-family: var(--f-display); font-style: italic; font-wei
 .nav__links a:hover::after { transform: scaleX(1); }
 
 .lang {
-  display: flex; padding: 3px; gap: 2px;
+  display: flex; align-items: center; padding: 3px; gap: 2px; min-height: 44px;
   border: var(--border); border-radius: 999px;
   background: var(--bg); cursor: pointer;
   font: 700 .85rem var(--f-body); color: var(--ink);
@@ -111,6 +115,34 @@ h2 em, .hero__name { font-family: var(--f-display); font-style: italic; font-wei
 .lang span { padding: .3rem .65rem; border-radius: 999px; transition: background .2s, color .2s; }
 html[lang="es"] .lang [data-lang="es"],
 html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--paper); }
+
+/* botón "Menú" (solo celular) */
+.menu-btn {
+  display: none; align-items: center; gap: .5rem;
+  min-height: 44px; padding: 0 1rem;
+  border: var(--border); border-radius: 999px;
+  background: var(--ink); color: var(--paper);
+  font: 700 .95rem var(--f-body); cursor: pointer;
+}
+.menu-btn__icon { display: grid; gap: 4px; width: 16px; }
+.menu-btn__icon i { height: 2.5px; border-radius: 2px; background: currentColor; transition: transform .2s; }
+.menu-btn[aria-expanded="true"] .menu-btn__icon i:first-child { transform: translateY(3.25px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] .menu-btn__icon i:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+
+/* menú desplegable */
+.mobile-menu {
+  position: absolute; top: calc(100% + 10px); left: 0; right: 0;
+  display: grid; gap: .3rem; padding: .7rem;
+  background: var(--paper);
+  border: var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.mobile-menu[hidden] { display: none; }
+.mobile-menu a {
+  display: block; padding: .8rem 1rem; border-radius: 14px;
+  font-weight: 700; font-size: 1.15rem; text-decoration: none;
+}
+.mobile-menu a:hover, .mobile-menu a:focus-visible { background: var(--bg); }
 
 /* ---------- 5. Hero ---------- */
 .hero {
@@ -204,7 +236,7 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
   padding: .55rem .8rem;
   background: var(--bg-2);
   border-bottom: var(--border);
-  font-size: .78rem; font-weight: 600;
+  font-size: .82rem; font-weight: 600;
 }
 .project__bar i { width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--ink); }
 .project__bar i:nth-child(1) { background: var(--coral); }
@@ -226,18 +258,20 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
 }
 
 .project__body { padding: 1.5rem 1.5rem 1.7rem; display: flex; flex-direction: column; gap: .8rem; flex: 1; }
-.project__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.project__top { display: grid; gap: .1rem; }
 .project__type { font-family: var(--f-hand); font-size: 1.35rem; color: var(--coral-ink); }
 .project h3 { font-size: 1.5rem; font-weight: 800; }
 .project p { margin: 0; color: var(--ink-soft); }
 .tags { display: flex; flex-wrap: wrap; gap: .45rem; list-style: none; margin: 0; padding: 0; }
-.tags li { font-size: .82rem; font-weight: 600; padding: .2rem .7rem; border: 2px solid var(--ink); border-radius: 999px; background: var(--bg); }
+.tags li { font-size: .875rem; font-weight: 600; padding: .2rem .7rem; border: 2px solid var(--ink); border-radius: 999px; background: var(--bg); }
 .project .btn { align-self: flex-start; margin-top: auto; }
+/* sticker "Cliente real" pegado en la esquina de la captura */
 .badge {
-  flex-shrink: 0;
-  font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
+  position: absolute; top: .8rem; right: .8rem; z-index: 2;
+  font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
   padding: .3rem .7rem; border: 2px solid var(--ink); border-radius: 999px;
-  background: var(--yellow); transform: rotate(4deg);
+  background: var(--yellow); color: var(--ink); transform: rotate(4deg);
+  box-shadow: 2px 2px 0 var(--ink);
 }
 
 /* ---------- 9. Sobre mí ---------- */
@@ -273,19 +307,32 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
 .facts span { font-family: var(--f-hand); font-size: 1.35rem; color: var(--coral-ink); line-height: 1.2; }
 
 /* ---------- 10. Servicios ---------- */
-.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1.6rem; }
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1.4rem; }
 .service {
-  padding: 1.8rem; border: var(--border); border-radius: var(--radius);
+  display: flex; flex-direction: column; gap: .5rem;
+  padding: 1.5rem; border: var(--border); border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: transform .2s;
 }
+.service:nth-child(even) { transform: rotate(.6deg); }
+.service:nth-child(odd) { transform: rotate(-.6deg); }
 .service:hover { transform: rotate(-1.5deg) scale(1.02); }
 .service--coral { background: var(--coral); }
 .service--lilac { background: var(--lilac); }
 .service--yellow { background: var(--yellow); }
-.service__num { font-family: var(--f-display); font-style: italic; font-size: 2.6rem; line-height: 1; }
-.service h3 { font-size: 1.45rem; margin: .8rem 0 .5rem; }
+.service--pink { background: var(--pink); }
+.service h3 { font-size: 1.3rem; line-height: 1.15; }
 .service p { margin: 0; }
+.service__ideal {
+  margin-top: auto !important; padding-top: .8rem;
+  border-top: 2px dashed rgba(24, 58, 36, .45);
+  font-size: .95rem; font-weight: 600;
+}
+.service__ideal span { font-family: var(--f-hand); font-size: 1.3rem; font-weight: 600; }
+.services__more {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem;
+  margin: 2.6rem 0 0; font-family: var(--f-hand); font-size: 1.7rem;
+}
 
 /* ---------- 11. Contacto ---------- */
 .contact { text-align: center; padding-bottom: 5rem; }
@@ -301,7 +348,7 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
   transition: transform .15s;
 }
 .mail:hover { transform: rotate(-1deg) scale(1.02); }
-.mail__addr { font-weight: 800; font-size: clamp(1rem, 3.6vw, 1.6rem); word-break: break-all; }
+.mail__addr { font-weight: 800; font-size: clamp(1.05rem, 3.6vw, 1.6rem); overflow-wrap: anywhere; }
 .mail__hint { font-family: var(--f-hand); font-size: 1.3rem; color: var(--coral-ink); }
 .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2.2rem; }
 
@@ -315,12 +362,18 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
 
 /* ---------- 14. Responsive ---------- */
 @media (max-width: 820px) {
-  .nav__links { display: none; }        /* en celu el menú se esconde: la página se recorre con scroll */
+  .nav__links { display: none; }        /* en celu los links pasan al botón "Menú" */
+  .menu-btn { display: inline-flex; }
   .about { grid-template-columns: 1fr; }
-  .about__photo { max-width: 280px; margin: 0 auto; }
+  .about__photo { width: 100%; max-width: 260px; margin: 0 auto 1rem; }
+  .about__note { right: -.6rem; }
   .deco--squiggle { display: none; }
-  .deco--star { width: 60px; top: 10%; }
+  .deco--star { width: 48px; top: 1.6rem; right: 0; }
   .deco--flower { display: none; }
+  .hero { padding-top: 3.5rem; }
+  .sticker { font-size: .9rem; }
+  .service { padding: 1.3rem; }
+  .services__more { font-size: 1.5rem; }
 }
 
 /* Respeta a quien prefiere menos movimiento */
@@ -329,3 +382,6 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; translate: 0 0; }
 }
+
+/* el botón de "Contame tu idea" usa la letra normal, no la manuscrita */
+.services__more .btn { font-family: var(--f-body); font-size: 1rem; }

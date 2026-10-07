@@ -8,6 +8,7 @@ const translations = {
     "nav.about": "Sobre mí",
     "nav.services": "Servicios",
     "nav.contact": "Contacto",
+    "nav.menu": "Menú",
 
     "hero.hello": "¡hola! soy",
     "hero.student": "Estudiante de Lic. en Sistemas de Información",
@@ -33,12 +34,8 @@ const translations = {
 
     "services.kicker": "para emprendimientos",
     "services.title": "¿Qué puedo hacer <em>por tu negocio?</em>",
-    "services.s1t": "Catálogo online",
-    "services.s1d": "Tus productos con fotos, precios y carrito. El pedido te llega directo por WhatsApp.",
-    "services.s2t": "Landing page",
-    "services.s2d": "Una página que presenta tu marca y tus servicios, con botón de contacto y lista para compartir en redes.",
-    "services.s3t": "Menú digital",
-    "services.s3d": "Tu carta con QR, fácil de actualizar y pensada para leerse cómoda en el celular.",
+    "services.more": "¿No ves lo que necesitás?",
+    "services.moreCta": "Contame tu idea →",
 
     "contact.kicker": "¿hablamos?",
     "contact.title": "¿Hacemos algo <em>juntos?</em>",
@@ -54,6 +51,7 @@ const translations = {
     "nav.about": "About",
     "nav.services": "Services",
     "nav.contact": "Contact",
+    "nav.menu": "Menu",
 
     "hero.hello": "hi! I'm",
     "hero.student": "Information Systems student",
@@ -79,12 +77,8 @@ const translations = {
 
     "services.kicker": "for small businesses",
     "services.title": "What can I do <em>for your business?</em>",
-    "services.s1t": "Online catalog",
-    "services.s1d": "Your products with photos, prices and a cart. Orders arrive straight to your WhatsApp.",
-    "services.s2t": "Landing page",
-    "services.s2d": "A page that presents your brand and services, with a contact button and ready to share on social media.",
-    "services.s3t": "Digital menu",
-    "services.s3d": "Your menu behind a QR code, easy to update and comfortable to read on a phone.",
+    "services.more": "Don't see what you need?",
+    "services.moreCta": "Tell me your idea →",
 
     "contact.kicker": "let's talk?",
     "contact.title": "Shall we build something <em>together?</em>",
