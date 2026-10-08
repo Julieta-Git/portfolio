@@ -7,6 +7,7 @@
 const projects = [
   {
     name: "Valeria Salón de Belleza",
+    inProgress: true, // cambiá a false cuando esté terminado
     url: "https://valeria-salon-de-belleza.netlify.app/",
     image: null, // poné "img/archivo.png" si preferís una captura fija
     colors: ["#f6d6dc", "#3b2a2f"], // [fondo, texto] del afiche
@@ -19,6 +20,7 @@ const projects = [
   },
   {
     name: "El Rincón de Luciérnaga",
+    inProgress: true, // cambiá a false cuando esté terminado
     url: "https://el-rincon-de-luciernaga.netlify.app/",
     image: null, // poné "img/archivo.png" si preferís una captura fija
     colors: ["#f7f0e1", "#1f4b5a"],
@@ -43,6 +45,7 @@ const projects = [
   },
   {
     name: "La Familia · Eventos",
+    inProgress: true, // cambiá a false cuando esté terminado
     url: "https://la-familia-organizacion-de-eventos.netlify.app/",
     image: null, // poné "img/archivo.png" si preferís una captura fija
     colors: ["#1e2140", "#f2d48a"],
@@ -187,7 +190,7 @@ function renderProjects() {
       <div class="project__browser">
         <div class="project__bar" aria-hidden="true"><i></i><i></i><i></i><span>${p.url.replace("https://", "")}</span></div>
         <a class="project__shot" href="${p.url}" target="_blank" rel="noopener" aria-label="${p.name}">
-          <span class="badge">${t["projects.badge"]}</span>
+          <span class="badge${p.inProgress ? " badge--wip" : ""}">${p.inProgress ? t["projects.wip"] : t["projects.badge"]}</span>
           <div class="project__fallback" style="background:${p.colors[0]};color:${p.colors[1]}">${p.name}</div>
           ${p.image
             ? `<img src="${p.image}" alt="Captura de ${p.name}" loading="lazy" onerror="this.remove()" />`
@@ -200,8 +203,9 @@ function renderProjects() {
           <h3>${p.name}</h3>
         </div>
         <p>${p.desc[currentLang]}</p>
+        ${p.inProgress ? `<p class="project__note">${t["projects.wipNote"]}</p>` : ""}
         <ul class="tags">${p.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>
-        <a class="btn btn--dark" href="${p.url}" target="_blank" rel="noopener">${t["projects.visit"]}</a>
+        <a class="btn btn--dark" href="${p.url}" target="_blank" rel="noopener">${p.inProgress ? t["projects.visitWip"] : t["projects.visit"]}</a>
       </div>
     </article>
   `).join("");

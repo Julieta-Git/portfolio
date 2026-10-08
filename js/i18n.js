@@ -20,6 +20,9 @@ const translations = {
     "projects.title": "Proyectos <em>con clientes reales</em>",
     "projects.visit": "Ver sitio ↗",
     "projects.badge": "Cliente real",
+    "projects.wip": "En desarrollo",
+    "projects.visitWip": "Ver avance ↗",
+    "projects.wipNote": "Cliente real · ya está online, falta sumar las fotos finales del cliente.",
     "services.example": "ver ejemplo",
 
     "about.note": "esta soy yo :)",
@@ -63,6 +66,9 @@ const translations = {
     "projects.title": "Projects <em>for real clients</em>",
     "projects.visit": "Visit site ↗",
     "projects.badge": "Real client",
+    "projects.wip": "In progress",
+    "projects.visitWip": "See progress ↗",
+    "projects.wipNote": "Real client · already online, waiting on the client's final photos.",
     "services.example": "see example",
 
     "about.note": "that's me :)",

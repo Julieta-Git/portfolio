@@ -397,3 +397,11 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
 
 /* el botón de "Contame tu idea" usa la letra normal, no la manuscrita */
 .services__more .btn { font-family: var(--f-body); font-size: 1rem; }
+
+/* proyectos en desarrollo */
+.badge--wip { background: var(--lilac); }
+.project__note {
+  font-size: .9rem; font-weight: 600; color: var(--ink) !important;
+  padding: .5rem .8rem; border: 2px dashed var(--ink); border-radius: 12px;
+  background: var(--bg);
+}
