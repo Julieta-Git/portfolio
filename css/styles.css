@@ -71,14 +71,21 @@ h2 em, .hero__name { font-family: var(--f-display); font-style: italic; font-wei
 .sticker--lilac { background: var(--lilac); transform: rotate(2deg); }
 .sticker--yellow { background: var(--yellow); transform: rotate(-1.5deg); }
 
-.kicker {
-  font-family: var(--f-hand);
-  font-size: 1.7rem;
-  color: var(--coral-ink);
-  margin: 0 0 .2rem;
-  transform: rotate(-2deg);
-  display: inline-block;
+/* Íconos dibujados: estrella de 4 puntas (la misma de las formas del hero) y flecha "abre afuera" */
+.star { width: .85em; height: .85em; fill: currentColor; display: inline-block; vertical-align: -.08em; }
+.btn--ext::after, .btn--arrow::after, .service__example::after {
+  content: ""; width: .95em; height: .95em; flex: none; background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat; mask: var(--icon) center / contain no-repeat;
 }
+.btn--ext, .service__example { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M8 7h9v9'/%3E%3C/svg%3E"); }
+.btn--arrow { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15M13 6l6 6-6 6'/%3E%3C/svg%3E"); }
+.service__example { display: inline-flex; align-items: center; gap: .3rem; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -100px; z-index: 100;
+  background: var(--ink); color: var(--paper); padding: .7rem 1rem; border-radius: 12px; font-weight: 600;
+}
+.skip-link:focus { top: 1rem; }
 
 /* ---------- 4. Nav ---------- */
 .nav {
@@ -390,9 +397,12 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
 
 /* Respeta a quien prefiere menos movimiento */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+  *, *::before, *::after { animation: none !important; }
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; translate: 0 0; }
+  .reveal { opacity: 1; translate: 0 0; transition: none !important; }
+  .btn:hover, .btn:active, .project:hover .project__shot img { transform: none !important; }
+  /* la cinta queda quieta: se puede desplazar a mano si no entra */
+  .marquee { overflow-x: auto; }
 }
 
 /* el botón de "Contame tu idea" usa la letra normal, no la manuscrita */

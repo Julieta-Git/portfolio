@@ -16,17 +16,15 @@ const translations = {
     "hero.cta1": "Ver proyectos",
     "hero.cta2": "Hablemos",
 
-    "projects.kicker": "lo que hice",
     "projects.title": "Proyectos <em>con clientes reales</em>",
-    "projects.visit": "Ver sitio ↗",
+    "projects.visit": "Ver sitio",
     "projects.badge": "Cliente real",
     "projects.wip": "En desarrollo",
-    "projects.visitWip": "Ver avance ↗",
+    "projects.visitWip": "Ver avance",
     "projects.wipNote": "Cliente real · ya está online, falta sumar las fotos finales del cliente.",
     "services.example": "ver ejemplo",
 
     "about.note": "esta soy yo :)",
-    "about.kicker": "sobre mí",
     "about.title": "Me gusta que las cosas <em>funcionen</em> y que <em>se vean lindas</em>",
     "about.p1": "Soy estudiante de la Licenciatura en Sistemas de Información y desarrolladora front-end. Empecé haciendo webs para emprendimientos cercanos y hoy armo sitios completos: desde el relevamiento con el cliente hasta la publicación online.",
     "about.p2": "Trabajo con HTML, CSS y JavaScript sin frameworks, siempre <strong>mobile-first</strong>, y también manejo <strong>SQL</strong> para bases de datos. Ahora estoy aprendiendo Astro.",
@@ -36,16 +34,14 @@ const translations = {
     "about.f2v": "Front-end · Responsive · UX",
     "about.f3k": "Aprendiendo",
 
-    "services.kicker": "para emprendimientos",
     "services.title": "¿Qué puedo hacer <em>por tu negocio?</em>",
     "services.more": "¿No ves lo que necesitás?",
-    "services.moreCta": "Contame tu idea →",
+    "services.moreCta": "Contame tu idea",
 
-    "contact.kicker": "¿hablamos?",
     "contact.title": "¿Hacemos algo <em>juntos?</em>",
     "contact.text": "Estoy abierta a trabajos, pasantías y proyectos freelance. Escribime y te respondo pronto.",
     "contact.copy": "clic para copiar",
-    "contact.copied": "¡copiado! ✓",
+    "contact.copied": "¡copiado!",
 
   },
 
@@ -62,17 +58,15 @@ const translations = {
     "hero.cta1": "See projects",
     "hero.cta2": "Let's talk",
 
-    "projects.kicker": "what I've built",
     "projects.title": "Projects <em>for real clients</em>",
-    "projects.visit": "Visit site ↗",
+    "projects.visit": "Visit site",
     "projects.badge": "Real client",
     "projects.wip": "In progress",
-    "projects.visitWip": "See progress ↗",
+    "projects.visitWip": "See progress",
     "projects.wipNote": "Real client · already online, waiting on the client's final photos.",
     "services.example": "see example",
 
     "about.note": "that's me :)",
-    "about.kicker": "about me",
     "about.title": "I like things that <em>work</em> and <em>look good</em>",
     "about.p1": "I'm a front-end developer and an Information Systems student. I started building websites for local small businesses, and now I handle complete projects: from gathering requirements with the client to publishing the site online.",
     "about.p2": "I work with plain HTML, CSS and JavaScript, always <strong>mobile-first</strong>, and I also know <strong>SQL</strong> for databases. Right now I'm learning Astro.",
@@ -82,16 +76,14 @@ const translations = {
     "about.f2v": "Front-end · Responsive · UX",
     "about.f3k": "Learning",
 
-    "services.kicker": "for small businesses",
     "services.title": "What can I do <em>for your business?</em>",
     "services.more": "Don't see what you need?",
-    "services.moreCta": "Tell me your idea →",
+    "services.moreCta": "Tell me your idea",
 
-    "contact.kicker": "let's talk?",
     "contact.title": "Shall we build something <em>together?</em>",
     "contact.text": "I'm open to jobs, internships and freelance projects. Drop me a line and I'll get back to you soon.",
     "contact.copy": "click to copy",
-    "contact.copied": "copied! ✓",
+    "contact.copied": "copied!",
 
   },
 };

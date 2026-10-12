@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Julieta Estefania Romero · Front-End Developer</title>
   <meta name="description" content="Portfolio de Julieta Estefania Romero, desarrolladora front-end. Sitios web responsive en HTML, CSS y JavaScript." />
+  <meta name="theme-color" content="#dcf2d2" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23183a24'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='30' fill='%23dcf2d2'%3EJR%3C/text%3E%3C/svg%3E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Julieta Estefania Romero · Front-End Developer" />
+  <meta property="og:description" content="Sitios web responsive para emprendimientos: catálogos, turnos y pedidos por WhatsApp, landings e invitaciones." />
+  <!-- Cuando el portfolio tenga dominio: <meta property="og:image" content="https://TU-DOMINIO/img/julieta.jpg" /> -->
+  <meta name="twitter:card" content="summary" />
 
   <!-- Tipografías: Fraunces (nombre en cursiva), Bricolage Grotesque (textos), Caveat (notas a mano) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,10 +21,11 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#proyectos">Saltar a los proyectos</a>
 
   <!-- ===== NAV ===== -->
   <header class="nav">
-    <a href="#inicio" class="nav__logo" aria-label="Inicio">J<span>.</span>R</a>
+    <a href="#inicio" class="nav__logo" aria-label="Julieta Romero, volver al inicio">J<span>.</span>R</a>
     <nav class="nav__links" aria-label="Principal">
       <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
       <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
@@ -59,7 +67,7 @@
       <h1 class="hero__name">Julieta Estefania <span class="hl">Romero</span></h1>
 
       <div class="hero__stickers">
-        <span class="sticker sticker--coral">Front-End Developer ✦</span>
+        <span class="sticker sticker--coral">Front-End Developer <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span>
         <span class="sticker sticker--lilac" data-i18n="hero.student">Estudiante de Lic. en Sistemas de Información</span>
         <span class="sticker sticker--yellow">HTML · CSS · JS · SQL</span>
       </div>
@@ -77,11 +85,11 @@
 
     <!-- ===== CINTA DE HABILIDADES ===== -->
     <div class="marquee-wrap">
-    <div class="marquee" aria-label="Habilidades">
+    <div class="marquee" role="region" aria-label="Habilidades">
       <div class="marquee__track">
-        <span>HTML5</span><span>✦</span><span>CSS3</span><span>✦</span><span>JavaScript</span><span>✦</span><span>SQL</span><span>✦</span><span>Git &amp; GitHub</span><span>✦</span><span>Responsive</span><span>✦</span><span>Mobile-first</span><span>✦</span><span>Netlify</span><span>✦</span><span>Astro</span><span>✦</span><span>Figma</span><span>✦</span>
+        <span>HTML5</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span>CSS3</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span>JavaScript</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span>SQL</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span>Git &amp; GitHub</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span>Responsive</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span>Mobile-first</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span>Netlify</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span>Astro</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span>Figma</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span>
         <!-- duplicado para que la cinta sea infinita -->
-        <span aria-hidden="true">HTML5</span><span aria-hidden="true">✦</span><span aria-hidden="true">CSS3</span><span aria-hidden="true">✦</span><span aria-hidden="true">JavaScript</span><span aria-hidden="true">✦</span><span aria-hidden="true">SQL</span><span aria-hidden="true">✦</span><span aria-hidden="true">Git &amp; GitHub</span><span aria-hidden="true">✦</span><span aria-hidden="true">Responsive</span><span aria-hidden="true">✦</span><span aria-hidden="true">Mobile-first</span><span aria-hidden="true">✦</span><span aria-hidden="true">Netlify</span><span aria-hidden="true">✦</span><span aria-hidden="true">Astro</span><span aria-hidden="true">✦</span><span aria-hidden="true">Figma</span><span aria-hidden="true">✦</span>
+        <span aria-hidden="true">HTML5</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span aria-hidden="true">CSS3</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span aria-hidden="true">JavaScript</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span aria-hidden="true">SQL</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span aria-hidden="true">Git &amp; GitHub</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span aria-hidden="true">Responsive</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span aria-hidden="true">Mobile-first</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span aria-hidden="true">Netlify</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span aria-hidden="true">Astro</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span><span aria-hidden="true">Figma</span><span class="marquee__sep"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0C55 35 65 45 100 50 65 55 55 65 50 100 45 65 35 55 0 50 35 45 45 35 50 0Z"/></svg></span>
       </div>
     </div>
     </div>
@@ -89,7 +97,6 @@
     <!-- ===== PROYECTOS ===== -->
     <section class="section" id="proyectos">
       <div class="section__head">
-        <p class="kicker" data-i18n="projects.kicker">lo que hice</p>
         <h2 data-i18n="projects.title">Proyectos <em>con clientes reales</em></h2>
       </div>
 
@@ -106,7 +113,6 @@
       </div>
 
       <div class="about__text">
-        <p class="kicker" data-i18n="about.kicker">sobre mí</p>
         <h2 data-i18n="about.title">Me gusta que las cosas <em>funcionen</em> y que <em>se vean lindas</em></h2>
         <p data-i18n="about.p1">
           Soy estudiante de la Licenciatura en Sistemas de Información y desarrolladora front-end.
@@ -127,7 +133,6 @@
     <!-- ===== SERVICIOS ===== -->
     <section class="section" id="servicios">
       <div class="section__head">
-        <p class="kicker" data-i18n="services.kicker">para emprendimientos</p>
         <h2 data-i18n="services.title">¿Qué puedo hacer <em>por tu negocio?</em></h2>
       </div>
 
@@ -137,28 +142,27 @@
 
       <p class="services__more">
         <span data-i18n="services.more">¿No ves lo que necesitás?</span>
-        <a href="#contacto" class="btn btn--dark" data-i18n="services.moreCta">Contame tu idea →</a>
+        <a href="#contacto" class="btn btn--dark btn--arrow" data-i18n="services.moreCta">Contame tu idea</a>
       </p>
     </section>
 
     <!-- ===== CONTACTO ===== -->
     <section class="section contact" id="contacto">
-      <p class="kicker" data-i18n="contact.kicker">¿hablamos?</p>
       <h2 class="contact__title" data-i18n="contact.title">¿Hacemos algo <em>juntos?</em></h2>
       <p data-i18n="contact.text">Estoy abierta a trabajos, pasantías y proyectos freelance. Escribime y te respondo pronto.</p>
 
       <button class="mail" id="copyMail" type="button">
         <span class="mail__addr">romerojulietaestefania<wbr>@gmail.com</span>
-        <span class="mail__hint" data-i18n="contact.copy">clic para copiar</span>
+        <span class="mail__hint" data-i18n="contact.copy" aria-live="polite">clic para copiar</span>
       </button>
 
       <div class="socials">
         <!-- WhatsApp: formato wa.me/549 + característica + número (sin 0 ni 15) -->
-        <a class="btn btn--dark" href="https://wa.me/5493704647853" target="_blank" rel="noopener">WhatsApp · 3704 647853 ↗</a>
-        <a class="btn btn--light" href="mailto:romerojulietaestefania@gmail.com">Email ↗</a>
+        <a class="btn btn--dark btn--ext" href="https://wa.me/5493704647853" target="_blank" rel="noopener">WhatsApp · 3704 647853</a>
+        <a class="btn btn--light" href="mailto:romerojulietaestefania@gmail.com">Email</a>
         <!-- Cuando tengas LinkedIn y GitHub actualizados, descomentá estas líneas:
-        <a class="btn btn--light" href="https://github.com/Julieta-Git" target="_blank" rel="noopener">GitHub ↗</a>
-        <a class="btn btn--light" href="URL-DE-TU-LINKEDIN" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn--light btn--ext" href="https://github.com/Julieta-Git" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn--light btn--ext" href="URL-DE-TU-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
         -->
       </div>
     </section>

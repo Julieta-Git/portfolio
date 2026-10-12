@@ -9,8 +9,8 @@ const projects = [
     name: "Valeria Salón de Belleza",
     inProgress: true, // cambiá a false cuando esté terminado
     url: "https://valeria-salon-de-belleza.netlify.app/",
-    image: null, // poné "img/archivo.png" si preferís una captura fija
-    colors: ["#f6d6dc", "#3b2a2f"], // [fondo, texto] del afiche
+    image: "img/valeria.webp", // captura fija (más liviana que cargar el sitio en vivo)
+    colors: ["#0d0b0c", "#f080c0"], // [fondo, texto] del afiche: negro y rosa del sitio
     tags: ["Astro", "CSS", "Mobile-first", "Netlify"],
     type: { es: "peluquería", en: "hair salon" },
     desc: {
@@ -22,8 +22,8 @@ const projects = [
     name: "El Rincón de Luciérnaga",
     inProgress: true, // cambiá a false cuando esté terminado
     url: "https://el-rincon-de-luciernaga.netlify.app/",
-    image: null, // poné "img/archivo.png" si preferís una captura fija
-    colors: ["#f7f0e1", "#1f4b5a"],
+    image: "img/rincon.webp",
+    colors: ["#f9f4ea", "#1f3a4d"],
     tags: ["HTML", "CSS", "JavaScript", "WhatsApp"],
     type: { es: "tienda de accesorios", en: "accessories shop" },
     desc: {
@@ -47,8 +47,8 @@ const projects = [
     name: "La Familia · Eventos",
     inProgress: true, // cambiá a false cuando esté terminado
     url: "https://la-familia-organizacion-de-eventos.netlify.app/",
-    image: null, // poné "img/archivo.png" si preferís una captura fija
-    colors: ["#1e2140", "#f2d48a"],
+    image: "img/la-familia.webp",
+    colors: ["#6b1e3a", "#faf6f0"], // bordó y marfil del sitio
     tags: ["HTML", "CSS", "JavaScript", "Figma"],
     type: { es: "organización de eventos", en: "event planning" },
     desc: {
@@ -193,7 +193,7 @@ function renderProjects() {
           <span class="badge${p.inProgress ? " badge--wip" : ""}">${p.inProgress ? t["projects.wip"] : t["projects.badge"]}</span>
           <div class="project__fallback" style="background:${p.colors[0]};color:${p.colors[1]}">${p.name}</div>
           ${p.image
-            ? `<img src="${p.image}" alt="Captura de ${p.name}" loading="lazy" onerror="this.remove()" />`
+            ? `<img src="${p.image}" alt="Captura de ${p.name}" width="1280" height="800" loading="lazy" decoding="async" onerror="this.remove()" />`
             : `<iframe class="project__live" src="${p.url}" title="Vista previa de ${p.name}" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>`}
         </a>
       </div>
@@ -205,7 +205,7 @@ function renderProjects() {
         <p>${p.desc[currentLang]}</p>
         ${p.inProgress ? `<p class="project__note">${t["projects.wipNote"]}</p>` : ""}
         <ul class="tags">${p.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>
-        <a class="btn btn--dark" href="${p.url}" target="_blank" rel="noopener">${p.inProgress ? t["projects.visitWip"] : t["projects.visit"]}</a>
+        <a class="btn btn--dark btn--ext" href="${p.url}" target="_blank" rel="noopener" aria-label="${p.inProgress ? t["projects.visitWip"] : t["projects.visit"]}: ${p.name}">${p.inProgress ? t["projects.visitWip"] : t["projects.visit"]}</a>
       </div>
     </article>
   `).join("");
@@ -229,7 +229,7 @@ function renderServices() {
     <article class="service service--${s.color}">
       <h3>${s.title[currentLang]}</h3>
       <p>${s.desc[currentLang]}</p>
-      ${s.example ? `<a class="service__example" href="${s.example}" target="_blank" rel="noopener">${translations[currentLang]["services.example"]} ↗</a>` : ""}
+      ${s.example ? `<a class="service__example" href="${s.example}" target="_blank" rel="noopener">${translations[currentLang]["services.example"]}</a>` : ""}
       <p class="service__ideal"><span>${idealLabel}:</span> ${s.ideal[currentLang]}</p>
     </article>
   `).join("");

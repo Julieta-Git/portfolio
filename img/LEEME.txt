@@ -1,3 +1,4 @@
 Tu foto ya está: julieta.jpg
-Las tarjetas de proyectos muestran el sitio en vivo.
-Si preferís una captura fija, guardala acá (ej. valeria.png) y en js/main.js poné image: "img/valeria.png".
+Las tarjetas de proyectos usan capturas fijas (valeria.webp, rincon.webp, la-familia.webp): cargan mucho más rápido que el sitio en vivo.
+Para actualizar una captura, reemplazá el archivo con el mismo nombre (1280×800, formato WebP o PNG).
+Si un proyecto no tiene captura ("image": null en js/main.js), se muestra el sitio en vivo.
