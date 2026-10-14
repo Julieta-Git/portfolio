@@ -7,7 +7,7 @@
 const projects = [
   {
     name: "Essenza Perfumes",
-    url: "https://julieta-git.github.io/essenza/",
+    url: "https://essenza-beryl.vercel.app/",
     image: "img/essenza.webp",
     colors: ["#0b0a09", "#c9a24a"], // negro y dorado del sitio
     tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
