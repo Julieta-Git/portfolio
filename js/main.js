@@ -6,6 +6,18 @@
 // =========================================================
 const projects = [
   {
+    name: "Essenza Perfumes",
+    url: "https://julieta-git.github.io/essenza/",
+    image: "img/essenza.webp",
+    colors: ["#0b0a09", "#c9a24a"], // negro y dorado del sitio
+    tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+    type: { es: "perfumería árabe", en: "Arabian perfume shop" },
+    desc: {
+      es: "Catálogo oscuro y elegante de perfumes árabes, con filtros por género, familia olfativa y temporada, un test para encontrar tu perfume y consultas directas por WhatsApp.",
+      en: "Dark, elegant catalog of Arabian perfumes, with filters by gender, olfactory family and season, a quiz to find your perfume and orders straight through WhatsApp.",
+    },
+  },
+  {
     name: "Valeria Salón de Belleza",
     inProgress: true, // cambiá a false cuando esté terminado
     url: "https://valeria-salon-de-belleza.netlify.app/",
