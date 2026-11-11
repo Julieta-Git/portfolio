@@ -18,6 +18,18 @@ const projects = [
     },
   },
   {
+    name: "Baby shower de Emma",
+    url: "https://bby-shower-de-emma.vercel.app/",
+    image: "img/baby-shower-emma.webp",
+    colors: ["#fbd6ec", "#b4537f"], // rosa y amarillo pastel de la invitación
+    tags: ["HTML", "CSS", "JavaScript", "Mobile-first", "Vercel"],
+    type: { es: "invitación digital", en: "digital invitation" },
+    desc: {
+      es: "Invitación web animada 100% para celular: un sol que crece hasta llenar la pantalla al abrirla, fotos de los papis, lista de regalos, cuenta regresiva, agendar en el calendario y confirmación por WhatsApp.",
+      en: "Animated, mobile-only web invitation: a sun that grows to fill the screen when it opens, photos of the parents, a gift list, a countdown, add-to-calendar and RSVP via WhatsApp.",
+    },
+  },
+  {
     name: "Valeria Salón de Belleza",
     inProgress: true, // cambiá a false cuando esté terminado
     url: "https://valeria-salon-de-belleza.netlify.app/",
