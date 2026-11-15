@@ -18,6 +18,18 @@ const projects = [
     },
   },
   {
+    name: "Melisa Tarot",
+    url: "https://melisatarot.vercel.app/",
+    image: "img/melisa-tarot.webp",
+    colors: ["#280100", "#dac473"], // bordó y dorado del sitio
+    tags: ["HTML", "CSS", "JavaScript", "WhatsApp", "Vercel"],
+    type: { es: "tarot y tienda holística", en: "tarot & holistic shop" },
+    desc: {
+      es: "Web para una tarotista con tienda holística: más de 30 tiradas con precios filtrables por colección, tienda de rituales y cristales con carrito, y pedidos y turnos directo por WhatsApp.",
+      en: "Website for a tarot reader with a holistic shop: 30+ readings with prices, filterable by collection, a rituals and crystals shop with a cart, and orders and bookings straight through WhatsApp.",
+    },
+  },
+  {
     name: "Baby shower de Emma",
     url: "https://bby-shower-de-emma.vercel.app/",
     image: "img/baby-shower-emma.webp",
@@ -32,27 +44,14 @@ const projects = [
   {
     name: "Valeria Salón de Belleza",
     inProgress: true, // cambiá a false cuando esté terminado
-    url: "https://valeria-salon-de-belleza.netlify.app/",
+    url: "https://valeria-salon-de-belleza.vercel.app/",
     image: "img/valeria.webp", // captura fija (más liviana que cargar el sitio en vivo)
     colors: ["#0d0b0c", "#f080c0"], // [fondo, texto] del afiche: negro y rosa del sitio
-    tags: ["Astro", "CSS", "Mobile-first", "Netlify"],
+    tags: ["Astro", "CSS", "Mobile-first", "Vercel"],
     type: { es: "peluquería", en: "hair salon" },
     desc: {
       es: "Web profesional para un salón de belleza, pensada mobile-first porque casi todas las visitas llegan desde el celular. Enlaza con la tienda del Rincón de Luciérnaga.",
       en: "Professional website for a beauty salon, built mobile-first because almost every visit comes from a phone. It links to the Rincón de Luciérnaga store.",
-    },
-  },
-  {
-    name: "El Rincón de Luciérnaga",
-    inProgress: true, // cambiá a false cuando esté terminado
-    url: "https://el-rincon-de-luciernaga.netlify.app/",
-    image: "img/rincon.webp",
-    colors: ["#f9f4ea", "#1f3a4d"],
-    tags: ["HTML", "CSS", "JavaScript", "WhatsApp"],
-    type: { es: "tienda de accesorios", en: "accessories shop" },
-    desc: {
-      es: "Catálogo con categorías, detalle de producto, carrito y pedido directo por WhatsApp, sin backend. Los productos viven en un archivo JS para cargarlos fácil.",
-      en: "Catalog with categories, product details, a cart and checkout via WhatsApp, with no backend. Products live in a JS file so they're easy to update.",
     },
   },
   {
@@ -67,19 +66,6 @@ const projects = [
       en: "Website for a bakery with a catalog, a cake builder and a swipeable gallery with lightbox. Ready to connect to a database in a future stage.",
     },
   },
-  {
-    name: "La Familia · Eventos",
-    inProgress: true, // cambiá a false cuando esté terminado
-    url: "https://la-familia-organizacion-de-eventos.netlify.app/",
-    image: "img/la-familia.webp",
-    colors: ["#6b1e3a", "#faf6f0"], // bordó y marfil del sitio
-    tags: ["HTML", "CSS", "JavaScript", "Figma"],
-    type: { es: "organización de eventos", en: "event planning" },
-    desc: {
-      es: "Landing para una empresa de eventos que cuenta sus servicios como los momentos de una noche de fiesta: “Así se vive una noche con nosotros”.",
-      en: "Landing page for an event company that tells its services as the moments of a party night: “This is what a night with us feels like”.",
-    },
-  },
 ];
 
 // =========================================================
@@ -91,7 +77,7 @@ const projects = [
 const services = [
   {
     color: "coral",
-    example: "https://el-rincon-de-luciernaga.netlify.app/",
+    example: "https://melisatarot.vercel.app/",
     title: { es: "Catálogo online", en: "Online catalog" },
     desc: {
       es: "Tus productos con fotos, precios, categorías y carrito. El pedido te llega directo por WhatsApp.",
@@ -101,7 +87,7 @@ const services = [
   },
   {
     color: "lilac",
-    example: "https://valeria-salon-de-belleza.netlify.app/",
+    example: "https://valeria-salon-de-belleza.vercel.app/",
     title: { es: "Web para tu negocio", en: "Business website" },
     desc: {
       es: "Un sitio completo con tus servicios, galería de trabajos, preguntas frecuentes y contacto.",
@@ -111,7 +97,7 @@ const services = [
   },
   {
     color: "yellow",
-    example: "https://la-familia-organizacion-de-eventos.netlify.app/",
+    example: "https://essenza-beryl.vercel.app/",
     title: { es: "Landing page", en: "Landing page" },
     desc: {
       es: "Una sola página para presentar tu marca o una promo, lista para compartir en redes.",
