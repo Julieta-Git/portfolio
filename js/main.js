@@ -10,7 +10,7 @@ const projects = [
     url: "https://essenza-beryl.vercel.app/",
     image: "img/essenza.webp",
     colors: ["#0b0a09", "#c9a24a"], // negro y dorado del sitio
-    tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+    tags: ["HTML", "CSS", "JavaScript", "Vercel"],
     type: { es: "perfumería árabe", en: "Arabian perfume shop" },
     desc: {
       es: "Catálogo oscuro y elegante de perfumes árabes, con filtros por género, familia olfativa y temporada, un test para encontrar tu perfume y consultas directas por WhatsApp.",
@@ -47,7 +47,7 @@ const projects = [
     url: "https://valeria-salon-de-belleza.vercel.app/",
     image: "img/valeria.webp", // captura fija (más liviana que cargar el sitio en vivo)
     colors: ["#0d0b0c", "#f080c0"], // [fondo, texto] del afiche: negro y rosa del sitio
-    tags: ["Astro", "CSS", "Mobile-first", "Vercel"],
+    tags: ["HTML", "CSS", "Mobile-first", "Vercel"],
     type: { es: "peluquería", en: "hair salon" },
     desc: {
       es: "Web profesional para un salón de belleza, pensada mobile-first porque casi todas las visitas llegan desde el celular. Enlaza con la tienda del Rincón de Luciérnaga.",
