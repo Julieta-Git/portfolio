@@ -12,7 +12,7 @@ const translations = {
 
     "hero.hello": "¡hola! soy",
     "hero.student": "Estudiante de Lic. en Sistemas de Información",
-    "hero.lead": "Diseño y programo sitios web que se ven lindos, cargan rápido y funcionan perfecto en el celular. Ya trabajé con <strong>clientes reales</strong>: pastelerías, tiendas, salones de belleza y eventos.",
+    "hero.lead": "Convierto tu Instagram en una <strong>web a medida</strong>: tus productos y servicios ordenados en un solo lugar, para que tus clientes te encuentren, te consulten y te compren desde el celular.",
     "hero.cta1": "Ver proyectos",
     "hero.cta2": "Hablemos",
 
@@ -55,7 +55,7 @@ const translations = {
 
     "hero.hello": "hi! I'm",
     "hero.student": "Information Systems student",
-    "hero.lead": "I design and build websites that look great, load fast and work perfectly on phones. I've already worked with <strong>real clients</strong>: bakeries, shops, beauty salons and event planners.",
+    "hero.lead": "I turn your Instagram into a <strong>custom website</strong>: your products and services in one place, so your customers can find you, reach out and buy from their phone.",
     "hero.cta1": "See projects",
     "hero.cta2": "Let's talk",
 
