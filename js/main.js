@@ -180,6 +180,7 @@ function applyLanguage(lang) {
 
   renderProjects();
   renderServices();
+  splitTitles();
 
   try { localStorage.setItem("lang", lang); } catch (e) {}
 }
@@ -187,6 +188,33 @@ function applyLanguage(lang) {
 document.getElementById("langToggle").addEventListener("click", () => {
   applyLanguage(currentLang === "es" ? "en" : "es");
 });
+
+// Títulos que entran palabra por palabra (cada palabra sube desde una "ventanita")
+function splitTitles() {
+  document.querySelectorAll(".section h2").forEach((h2) => {
+    let i = 0;
+    const walk = (node) => {
+      [...node.childNodes].forEach((child) => {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach((part) => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.append(part); return; }
+            const w = document.createElement("span");
+            w.className = "w";
+            w.innerHTML = `<span style="--i:${i++}"></span>`;
+            w.firstChild.textContent = part;
+            frag.append(w);
+          });
+          child.replaceWith(frag);
+        } else if (child.nodeType === Node.ELEMENT_NODE && !child.classList.contains("w")) {
+          walk(child);
+        }
+      });
+    };
+    walk(h2);
+  });
+}
 
 // =========================================================
 // 3. TARJETAS DE PROYECTOS
@@ -308,3 +336,21 @@ observeReveal(document.querySelectorAll(".section__head, .about, .services__more
 
 // Arranca todo
 applyLanguage(currentLang);
+
+// La cinta de habilidades acelera mientras bajás y vuelve sola a su ritmo
+(() => {
+  const track = document.querySelector(".marquee__track");
+  if (!track || !track.getAnimations || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let lastY = scrollY, boost = 0, ticking = false;
+  const tick = () => {
+    const anim = track.getAnimations()[0];
+    boost *= 0.92;
+    if (anim) anim.playbackRate = 1 + boost;
+    if (boost > 0.02) requestAnimationFrame(tick); else { if (anim) anim.playbackRate = 1; ticking = false; }
+  };
+  addEventListener("scroll", () => {
+    boost = Math.min(boost + Math.abs(scrollY - lastY) / 60, 4);
+    lastY = scrollY;
+    if (!ticking) { ticking = true; requestAnimationFrame(tick); }
+  }, { passive: true });
+})();
