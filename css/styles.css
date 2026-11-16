@@ -383,7 +383,6 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
   font-size: .9rem; color: var(--ink-soft);
 }
 .footer p { margin: 0; }
-.services__hint { display: none; }
 
 /* ---------- 13. Animación al aparecer (la activa main.js) ---------- */
 .reveal { opacity: 0; translate: 0 30px; transition: opacity .7s ease, translate .7s ease, transform .25s; }
@@ -436,22 +435,6 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
   /* sobre mí: cada dato con la etiqueta arriba, todos iguales */
   .facts li { flex-direction: column; gap: 0; padding: .7rem 1rem; }
 
-  /* servicios: carrusel que se desliza de costado en vez de una columna larguísima */
-  .services__hint {
-    display: block; margin: -1rem 0 .4rem; text-align: right;
-    font-family: var(--f-hand); font-size: 1.35rem; color: var(--coral-ink);
-  }
-  .services {
-    display: flex; gap: 1rem;
-    overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
-    margin-inline: -16px; padding: .6rem 16px 1.4rem; scroll-padding-inline: 16px;
-    scrollbar-width: none;
-  }
-  .services::-webkit-scrollbar { display: none; }
-  .services:focus-visible { outline-offset: -3px; }
-  .service, .service:nth-child(odd), .service:nth-child(even), .service:hover {
-    flex: 0 0 82%; scroll-snap-align: start; transform: none;
-  }
   .services__more { margin-top: 1.4rem; font-size: 1.4rem; }
 
   /* contacto: botones parejos */
@@ -486,4 +469,109 @@ html[lang="en"] .lang [data-lang="en"] { background: var(--ink); color: var(--pa
 @media (max-width: 360px) {
   .sticker { font-size: .72rem; padding: .3rem .65rem; }
   .hero__cta .btn { padding: .75rem 1rem; font-size: .95rem; white-space: nowrap; }
+}
+
+
+/* =========================================================
+   16. Estilo editorial (mezcla): menos stickers, más orden.
+   Inspirado en listas numeradas con líneas finas, títulos
+   grandes y un degradé de los colores de la marca como acento.
+   ========================================================= */
+:root {
+  --rule: 1.5px solid rgba(24, 58, 36, .28);
+  --grad: linear-gradient(90deg, #c2410c, #d6336c 50%, #6d4ae0);  /* coral, rosa y lila oscurecidos: se leen sobre el verde */
+}
+body { background-image: none; }
+
+/* etiqueta numerada arriba de cada título */
+.eyebrow {
+  display: flex; align-items: center; gap: .8rem; margin: 0 0 1rem;
+  font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);
+}
+.eyebrow span:first-child { font-variant-numeric: tabular-nums; color: var(--coral-ink); }
+.eyebrow span:last-child { flex: 1; display: flex; align-items: center; gap: .8rem; }
+.eyebrow span:last-child::after { content: ""; flex: 1; border-top: var(--rule); }
+.eyebrow--center { max-width: 520px; margin-inline: auto; }
+
+/* nav más plana */
+.nav { box-shadow: none; border-width: 1.5px; background: rgba(251, 255, 248, .9); backdrop-filter: blur(8px); }
+.lang, .menu-btn { border-width: 1.5px; }
+.mobile-menu { box-shadow: none; border-width: 1.5px; }
+
+/* portada */
+.hero__hello { transform: none; font-family: var(--f-body); font-size: .85rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.arrow { display: none; }
+.hl {
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+  padding: 0 .08em 0 0;
+}
+.hero__meta {
+  display: flex; flex-wrap: wrap; margin: 0 0 1.8rem; padding: 0; width: fit-content; max-width: 100%;
+  border-block: var(--rule);
+}
+.hero__meta span {
+  padding: .7rem 0;
+  font-size: .82rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+}
+.hero__meta span + span { border-left: var(--rule); padding-left: 1.2rem; margin-left: 1.2rem; }
+.deco--star { width: 64px; fill: var(--yellow); stroke-width: 2.5; }
+
+/* botones sin sombra dura */
+.btn, .btn:hover, .btn:active { box-shadow: none; border-width: 1.5px; }
+.btn:hover { transform: translateY(-2px); }
+
+/* cinta recta y fina */
+.marquee { transform: none; margin: 0; border-block-width: 0; }
+.marquee__track { font-size: 1rem; font-weight: 600; letter-spacing: .12em; padding: .75rem 0; }
+
+/* proyectos: tarjetas planas y numeradas */
+.project, .project:nth-child(odd), .project:nth-child(even) { transform: none; box-shadow: none; border-width: 1.5px; border-radius: 16px; }
+.project:hover { transform: translateY(-4px); }
+.project__browser, .project__bar { border-width: 1.5px; }
+.project__bar { background: transparent; }
+.project__bar span { background: rgba(24, 58, 36, .07); }
+.project__top { grid-template-columns: auto 1fr; column-gap: .7rem; align-items: baseline; }
+.project__num { grid-row: span 2; font-size: .85rem; font-weight: 600; color: var(--coral-ink); font-variant-numeric: tabular-nums; }
+.project__type { font-family: var(--f-body); font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.tags li { border-width: 1.5px; background: transparent; }
+.badge, .badge--wip { transform: none; box-shadow: none; border-width: 1.5px; font-size: .7rem; }
+.project__note { border-width: 1.5px; }
+
+/* sobre mí */
+.about__photo img { box-shadow: none; border-width: 1.5px; }
+.about__note { transform: rotate(-4deg); border-width: 1.5px; }
+.facts { gap: 0; border-top: var(--rule); }
+.facts li { background: none; border: 0; border-bottom: var(--rule); border-radius: 0; padding: .9rem 0; }
+.facts span { font-family: var(--f-body); font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* servicios: lista numerada con líneas finas (el color queda como un puntito) */
+.services { display: block; list-style: none; margin: 0; padding: 0; border-top: var(--rule); }
+.service, .service:nth-child(odd), .service:nth-child(even), .service:hover {
+  display: grid; grid-template-columns: 3rem 1fr auto; gap: .4rem 1.4rem; align-items: start;
+  padding: 1.4rem 0; background: none; border: 0; border-bottom: var(--rule); border-radius: 0;
+  box-shadow: none; transform: none;
+}
+.service__num { font-size: .9rem; font-weight: 600; color: var(--coral-ink); font-variant-numeric: tabular-nums; padding-top: .25rem; display: flex; align-items: center; gap: .5rem; }
+.service__num::after { content: ""; width: .6rem; height: .6rem; border-radius: 50%; background: var(--dot, var(--coral)); }
+.service--lilac { --dot: var(--lilac); } .service--yellow { --dot: var(--yellow); } .service--pink { --dot: var(--pink); }
+.service__main { display: grid; gap: .35rem; }
+.service h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 600; }
+.service p { color: var(--ink-soft); max-width: 60ch; }
+.service__ideal { margin: 0 !important; padding: 0; border: 0; font-size: .9rem; }
+.service__ideal span { font-family: var(--f-body); font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.service__example { align-self: center; white-space: nowrap; }
+.services__more { font-family: var(--f-body); font-size: 1.1rem; }
+
+/* contacto */
+.contact__title em { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .1em; }
+.mail { box-shadow: none; border-width: 1.5px; }
+.footer { border-top: var(--rule); }
+
+@media (max-width: 600px) {
+  .deco--star { display: none; }
+  .hero__meta { flex-direction: column; border-bottom: 0; }
+  .hero__meta span, .hero__meta span + span { border-left: 0; margin: 0; padding: .55rem 0; border-bottom: var(--rule); font-size: .74rem; }
+  .service, .service:nth-child(odd), .service:nth-child(even), .service:hover { grid-template-columns: 2.6rem 1fr; padding: 1.2rem 0; }
+  .service__example { grid-column: 2; justify-self: start; min-height: 36px; }
+  .project, .project:nth-child(odd), .project:nth-child(even) { box-shadow: none; }
 }

@@ -195,7 +195,7 @@ function renderProjects() {
   const grid = document.getElementById("projectsGrid");
   const t = translations[currentLang];
 
-  grid.innerHTML = projects.map((p) => `
+  grid.innerHTML = projects.map((p, i) => `
     <article class="project">
       <div class="project__browser">
         <div class="project__bar" aria-hidden="true"><i></i><i></i><i></i><span>${p.url.replace("https://", "")}</span></div>
@@ -209,6 +209,7 @@ function renderProjects() {
       </div>
       <div class="project__body">
         <div class="project__top">
+          <span class="project__num">${String(i + 1).padStart(2, "0")}</span>
           <span class="project__type">${p.type[currentLang]}</span>
           <h3>${p.name}</h3>
         </div>
@@ -235,13 +236,16 @@ function renderServices() {
   const grid = document.getElementById("servicesGrid");
   const idealLabel = currentLang === "es" ? "ideal para" : "great for";
 
-  grid.innerHTML = services.map((s) => `
-    <article class="service service--${s.color}">
-      <h3>${s.title[currentLang]}</h3>
-      <p>${s.desc[currentLang]}</p>
+  grid.innerHTML = services.map((s, i) => `
+    <li class="service service--${s.color}">
+      <span class="service__num">${String(i + 1).padStart(2, "0")}</span>
+      <div class="service__main">
+        <h3>${s.title[currentLang]}</h3>
+        <p>${s.desc[currentLang]}</p>
+        <p class="service__ideal"><span>${idealLabel}:</span> ${s.ideal[currentLang]}</p>
+      </div>
       ${s.example ? `<a class="service__example" href="${s.example}" target="_blank" rel="noopener">${translations[currentLang]["services.example"]}</a>` : ""}
-      <p class="service__ideal"><span>${idealLabel}:</span> ${s.ideal[currentLang]}</p>
-    </article>
+    </li>
   `).join("");
 
   observeReveal(grid.querySelectorAll(".service"));
