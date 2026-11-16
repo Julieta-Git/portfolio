@@ -138,7 +138,8 @@
 
       <!-- Las tarjetas se generan desde js/main.js (array "services").
            Para sumar, sacar o editar un servicio, cambialo ahí. -->
-      <div class="services" id="servicesGrid"></div>
+      <p class="services__hint" aria-hidden="true" data-i18n="services.hint">deslizá para ver más →</p>
+      <div class="services" id="servicesGrid" role="region" aria-label="Servicios" tabindex="0"></div>
 
       <p class="services__more">
         <span data-i18n="services.more">¿No ves lo que necesitás?</span>
@@ -167,6 +168,10 @@
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <p>© 2026 Julieta Estefania Romero · <span data-i18n="footer.made">hecho a mano con HTML, CSS y JavaScript</span></p>
+  </footer>
 
 
   <script src="js/i18n.js"></script>

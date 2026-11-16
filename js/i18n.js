@@ -37,6 +37,8 @@ const translations = {
     "services.title": "¿Qué puedo hacer <em>por tu negocio?</em>",
     "services.more": "¿No ves lo que necesitás?",
     "services.moreCta": "Contame tu idea",
+    "services.hint": "deslizá para ver más →",
+    "footer.made": "hecho a mano con HTML, CSS y JavaScript",
 
     "contact.title": "¿Hacemos algo <em>juntos?</em>",
     "contact.text": "Estoy abierta a trabajos, pasantías y proyectos freelance. Escribime y te respondo pronto.",
@@ -79,6 +81,8 @@ const translations = {
     "services.title": "What can I do <em>for your business?</em>",
     "services.more": "Don't see what you need?",
     "services.moreCta": "Tell me your idea",
+    "services.hint": "swipe to see more →",
+    "footer.made": "handmade with HTML, CSS and JavaScript",
 
     "contact.title": "Shall we build something <em>together?</em>",
     "contact.text": "I'm open to jobs, internships and freelance projects. Drop me a line and I'll get back to you soon.",
